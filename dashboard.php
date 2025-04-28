@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto p-4">
+        <!-- Profile Section -->
+        <div class="flex items-center space-x-4 mb-6">
+            <!-- Profile Picture -->
+            <img src="images/default_profile.png" alt="Profile Picture" class="w-16 h-16 rounded-full border-2 border-gray-300">
+            <!-- Nickname and Buttons -->
+            <div>
+                <h2 class="text-xl font-bold">User Nickname</h2>
+                <button class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 mt-2">Update Profile</button>
+                <button class="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 mt-2 block">Log Out</button>
+            </div>
+        </div>
+
+        <!-- Announcement Section -->
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6">
+            <h3 class="font-bold">Announcement</h3>
+            <p>This is a view-only announcement for all users. It cannot be updated or changed by users.</p>
+        </div>
+
+        <!-- Post Creation Section -->
+        <div class="bg-white p-4 rounded-lg shadow mb-6">
+            <h3 class="text-lg font-bold mb-2">What do you want to share today?</h3>
+            <textarea class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3" placeholder="Write something..."></textarea>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-2">Post</button>
+        </div>
+
+        <!-- Posts Section -->
+        <div class="space-y-4">
+            <!-- Example Post -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex items-center justify-between">
+                    <h4 class="font-bold">User Nickname</h4>
+                    <div class="space-x-2">
+                        <button class="text-blue-500 hover:underline">Edit</button>
+                        <button class="text-red-500 hover:underline">Delete</button>
+                    </div>
+                </div>
+                <p class="mt-2">This is an example post content. Users can reply to this post.</p>
+                <div class="mt-4">
+                    <textarea class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2" placeholder="Write a reply..."></textarea>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-2">Reply</button>
+                </div>
+            </div>
+
+            <!-- Add more posts dynamically here -->
+        </div>
+    </div>
+
+
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['email'])) {
+    // Redirect to login page
+    header("Location: homebase.html");
+    exit();
+}
+
+// Dummy user data for demonstration
+$user_nickname = "Miko";
+?>
+</body>
+</html>
